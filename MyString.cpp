@@ -36,11 +36,11 @@ MyString::MyString(const MyString &target_str) {
 void MyString::Print() { std::cout << str << std::endl; }
 
 void MyString::MyStrcpy(MyString &target_str) {
-    if (str != nullptr) delete[] str;
     if (target_str.str == nullptr) {
         std::cerr << "Invalid string to copy\n";
         return;
     }
+    if (str != nullptr) delete[] str;
     length = target_str.length;
     str = new char[length + 1];
     strcpy(str, target_str.str);
