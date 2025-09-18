@@ -12,7 +12,7 @@ public:
     MyString(const char *str);
     MyString(const MyString &target_str);
     ~MyString();
-
+    MyString(MyString &&target_str);
     void MyStrcpy(MyString &target_str);
     bool MyStrStr(const char *target_str);
     int  MyChr(char target_symbol);

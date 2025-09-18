@@ -102,3 +102,10 @@ void MyString::MyDelChr(char target_char) {
 MyString::~MyString() {
     delete[] str;
 }
+
+MyString::MyString(MyString &&target_str) {
+    length = target_str.length;
+    target_str.length = 0;
+    str = target_str.str;
+    target_str.str = nullptr;
+}
