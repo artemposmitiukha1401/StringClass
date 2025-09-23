@@ -1,11 +1,14 @@
 #ifndef MYSTRING_H
 #define MYSTRING_H
+#include <iostream>
+#include <__ostream/basic_ostream.h>
 
 // MyString.h - файл дизайна
 
 class MyString {
     char* str = nullptr;
     int length;
+    static int strings_count;
 public:
     MyString();
     MyString(int length);
@@ -20,6 +23,8 @@ public:
     void MyStrCat(MyString &cat_str_target);
     int MyStrCmp(MyString &cmp_str_target);
     void MyDelChr(char target_char);
+
+    static void PrintStringsCount();
 
     void Print();
     void Input();

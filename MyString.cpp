@@ -1,16 +1,24 @@
 #include "MyString.h"
 #include <iostream>
 
+int MyString::strings_count = 0;
+
+void MyString::PrintStringsCount() {
+    std::cout << "Total number of strings: " << strings_count << std::endl;
+}
+
 MyString::MyString() {
     length = 80;
     str = new char[length];
     str[0] = '\0';
+    strings_count++;
 }
 
 MyString::MyString(int length) {
     this->length = length;
     str = new char[length];
     str[0] = '\0';
+    strings_count++;
 }
 
 MyString::MyString(const char *str) {
@@ -24,12 +32,14 @@ MyString::MyString(const char *str) {
         this->str = new char[length + 1];
         strcpy(this->str, str);
     }
+    strings_count++;
 }
 
 MyString::MyString(const MyString &target_str) {
     length = target_str.length;
     str = new char[length + 1];
     strcpy(str, target_str.str);
+    strings_count++;
 }
 
 
