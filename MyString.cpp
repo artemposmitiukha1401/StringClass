@@ -8,6 +8,10 @@ void MyString::PrintStringsCount() {
 }
 
 MyString MyString::operator+(const MyString &target_str) const{
+    if (target_str.str == nullptr || strlen(target_str.str)) {
+        std::cerr << "Invalid operation\n";
+        return *this;
+    }
     int cat_string_length = strlen(target_str.str) + strlen(str);
     MyString new_str{cat_string_length + 1};
     strcpy(new_str.str, str);
@@ -18,6 +22,10 @@ MyString MyString::operator+(const MyString &target_str) const{
 
 
 MyString MyString::operator+(const char* target_str) const{
+    if (target_str == nullptr || strlen(target_str)) {
+        std::cerr << "Invalid operation\n";
+        return *this;
+    }
     int cat_string_length = strlen(target_str) + strlen(str);
     MyString new_str{ cat_string_length+ 1};
     strcpy(new_str.str, str);
