@@ -12,6 +12,7 @@ MyString MyString::operator+(const MyString &target_str) const{
     MyString new_str{cat_string_length + 1};
     strcpy(new_str.str, str);
     strcat(new_str.str, target_str.str);
+    strings_count++;
     return new_str;
 }
 
@@ -21,7 +22,7 @@ MyString MyString::operator+(const char* target_str) const{
     MyString new_str{ cat_string_length+ 1};
     strcpy(new_str.str, str);
     strcat(new_str.str, target_str);
-
+    strings_count++;
     return new_str;
 }
 
@@ -31,7 +32,7 @@ MyString MyString::operator+(const char target_char) const {
     strcpy(new_str.str, str);
     new_str.str[new_str.length ] = target_char;
     new_str.str[new_str.length + 1] = '\0';
-
+    strings_count++;
     return new_str;
 }
 MyString MyString::operator-(const char* target_str) const {
@@ -45,7 +46,7 @@ MyString MyString::operator-(const char* target_str) const {
         if (strncmp(&str[i], target_str, new_length) == 0) i += new_length;
         else result.str[write_index++] = str[i++];
     }
-
+    strings_count++;
     result.str[write_index] = '\0';
     return result;
 }
