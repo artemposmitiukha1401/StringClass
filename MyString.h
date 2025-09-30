@@ -16,15 +16,19 @@ public:
     MyString(const MyString &target_str);
     ~MyString();
     MyString(MyString &&target_str);
-    void MyStrcpy(MyString &target_str);
+    void MyStrcpy(const MyString &target_str);
     bool MyStrStr(const char *target_str);
     int  MyChr(char target_symbol);
     int MyStrLen();
-    void MyStrCat(MyString &cat_str_target);
+    void MyStrCat(const MyString &cat_str_target);
     int MyStrCmp(MyString &cmp_str_target);
     void MyDelChr(char target_char);
-
     static void PrintStringsCount();
+
+    MyString operator+(const MyString &target_str) const;
+    MyString operator+(const char* target_str) const;
+    MyString operator+(const char target_str) const;
+    MyString operator-(const char* target_str) const;
 
     void Print();
     void Input();

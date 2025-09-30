@@ -7,6 +7,49 @@ void MyString::PrintStringsCount() {
     std::cout << "Total number of strings: " << strings_count << std::endl;
 }
 
+MyString MyString::operator+(const MyString &target_str) const{
+    int cat_string_length = strlen(target_str.str) + strlen(str);
+    MyString new_str{cat_string_length + 1};
+    strcpy(new_str.str, str);
+    strcat(new_str.str, target_str.str);
+    return new_str;
+}
+
+
+MyString MyString::operator+(const char* target_str) const{
+    int cat_string_length = strlen(target_str) + strlen(str);
+    MyString new_str{ cat_string_length+ 1};
+    strcpy(new_str.str, str);
+    strcat(new_str.str, target_str);
+
+    return new_str;
+}
+
+MyString MyString::operator+(const char target_char) const {
+    int cat_string_length = strlen(str) ;
+    MyString new_str{cat_string_length+ 2};
+    strcpy(new_str.str, str);
+    new_str.str[new_str.length ] = target_char;
+    new_str.str[new_str.length + 1] = '\0';
+
+    return new_str;
+}
+MyString MyString::operator-(const char* target_str) const {
+    if (target_str == nullptr || strlen(target_str) == 0) return MyString(*this);
+
+    int new_length = strlen(target_str);
+    MyString result(this->length);
+    int write_index = 0;
+
+    for (int i = 0; str[i] != '\0'; ) {
+        if (strncmp(&str[i], target_str, new_length) == 0) i += new_length;
+        else result.str[write_index++] = str[i++];
+    }
+
+    result.str[write_index] = '\0';
+    return result;
+}
+
 MyString::MyString() {
     length = 80;
     str = new char[length];
@@ -45,15 +88,15 @@ MyString::MyString(const MyString &target_str) {
 
 void MyString::Print() { std::cout << str << std::endl; }
 
-void MyString::MyStrcpy(MyString &target_str) {
-    if (target_str.str == nullptr) {
-        std::cerr << "Invalid string to copy\n";
-        return;
-    }
-    if (str != nullptr) delete[] str;
-    length = target_str.length;
-    str = new char[length + 1];
-    strcpy(str, target_str.str);
+void MyString::MyStrcpy(const MyString &target_str) {
+    if (this == &target_str) return;
+
+    char* temp = new char[strlen(target_str.str) + 1];
+    strcpy(temp, target_str.str);
+
+    delete[] str;
+    str = temp;
+    length = strlen(str);
 }
 
 
@@ -82,7 +125,9 @@ void MyString::Input() {
     strcpy(this->str, temp_str);
 }
 
-void MyString::MyStrCat(MyString &cat_str_target) {
+void MyString::MyStrCat(const MyString &cat_str_target) {
+    if (cat_str_target.str == nullptr) return;
+
     int cat_length = strlen(str) + strlen(cat_str_target.str);
     char* cat_str_result = new char[cat_length + 1];
 
