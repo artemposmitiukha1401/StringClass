@@ -29,6 +29,12 @@ public:
     MyString operator+(const char* target_str) const;
     MyString operator+(const char target_str) const;
     MyString operator-(const char* target_str) const;
+    bool operator==(const MyString &target_str) const;
+    bool operator!=(const MyString &target_str) const;
+    bool operator>(const MyString &target_str) const;
+    bool operator<(const MyString &target_str) const;
+    bool operator>=(const MyString &target_str) const;
+    bool operator<=(const MyString &target_str) const;
 
     void Print();
     void Input();

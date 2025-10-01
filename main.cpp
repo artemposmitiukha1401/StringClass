@@ -11,6 +11,10 @@ int main() {
     test_str5.Print();
     MyString test_str6 = test_str - "world";
     test_str6.Print();
+
+    test_str > test_str2 ? std::cout << "First is bigger\n" : std::cout << "Second is bigger\n";
+    test_str < test_str2 ? std::cout << "First is bigger\n" : std::cout << "Second is bigger\n";
+
     // test_str.Print();
     // test_str2.Print();
     // std::cout << test_str.MyStrLen() << std::endl;

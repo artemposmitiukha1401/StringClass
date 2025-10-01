@@ -8,7 +8,7 @@ void MyString::PrintStringsCount() {
 }
 
 MyString MyString::operator+(const MyString &target_str) const{
-    if (target_str.str == nullptr || strlen(target_str.str)) {
+    if (target_str.str == nullptr || strlen(target_str.str) == 0) {
         std::cerr << "Invalid operation\n";
         return *this;
     }
@@ -22,7 +22,7 @@ MyString MyString::operator+(const MyString &target_str) const{
 
 
 MyString MyString::operator+(const char* target_str) const{
-    if (target_str == nullptr || strlen(target_str)) {
+    if (target_str == nullptr || strlen(target_str) == 0) {
         std::cerr << "Invalid operation\n";
         return *this;
     }
@@ -58,6 +58,26 @@ MyString MyString::operator-(const char* target_str) const {
     result.str[write_index] = '\0';
     return result;
 }
+
+bool MyString::operator==(const MyString &target_str) const {
+    return strcmp(this->str, target_str.str) == 0;
+}
+bool MyString::operator!=(const MyString &target_str) const {
+    return strcmp(this->str, target_str.str) != 0;
+}
+bool MyString::operator>(const MyString &target_str) const {
+    return strcmp(this->str, target_str.str) > 0;
+}
+bool MyString::operator<(const MyString &target_str) const {
+    return strcmp(this->str, target_str.str) < 0;
+}
+bool MyString::operator>=(const MyString &target_str) const {
+    return strcmp(this->str, target_str.str) >= 0;
+}
+bool MyString::operator<=(const MyString &target_str) const {
+    return strcmp(this->str, target_str.str) <= 0;
+}
+
 
 MyString::MyString() {
     length = 80;
