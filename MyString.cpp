@@ -78,6 +78,30 @@ bool MyString::operator<=(const MyString &target_str) const {
     return strcmp(this->str, target_str.str) <= 0;
 }
 
+bool MyString::operator==(const int length) const {
+    return this->length == length;
+}
+
+bool MyString::operator!=(const int length) const {
+    return this->length != length;
+}
+
+bool MyString::operator>(const int length) const {
+    return this->length > length;
+}
+
+bool MyString::operator<(const int length) const {
+    return this->length < length;
+}
+
+bool MyString::operator>=(const int length) const {
+    return this->length >= length;
+}
+
+bool MyString::operator<=(const int length) const {
+    return this->length <= length;
+}
+
 
 MyString::MyString() {
     length = 80;

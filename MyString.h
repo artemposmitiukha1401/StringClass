@@ -29,12 +29,20 @@ public:
     MyString operator+(const char* target_str) const;
     MyString operator+(const char target_str) const;
     MyString operator-(const char* target_str) const;
+
     bool operator==(const MyString &target_str) const;
     bool operator!=(const MyString &target_str) const;
     bool operator>(const MyString &target_str) const;
     bool operator<(const MyString &target_str) const;
     bool operator>=(const MyString &target_str) const;
     bool operator<=(const MyString &target_str) const;
+
+    bool operator==(const int length) const;
+    bool operator!=(const int length) const;
+    bool operator>(const int length) const;
+    bool operator<(const int length) const;
+    bool operator>=(const int length) const;
+    bool operator<=(const int length) const;
 
     void Print();
     void Input();
