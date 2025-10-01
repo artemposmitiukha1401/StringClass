@@ -44,6 +44,13 @@ public:
     bool operator>=(const int length) const;
     bool operator<=(const int length) const;
 
+    bool operator==(const char* target_str) const;
+    bool operator!=(const char* target_str) const;
+    bool operator>(const char* target_str) const;
+    bool operator<(const char* target_str) const;
+    bool operator>=(const char* target_str) const;
+    bool operator<=(const char* target_str) const;
+
     void Print();
     void Input();
 };

@@ -14,6 +14,9 @@ int main() {
 
     test_str > test_str2 ? std::cout << "First is bigger\n" : std::cout << "Second is bigger\n";
     test_str < test_str2 ? std::cout << "First is bigger\n" : std::cout << "Second is bigger\n";
+    test_str == test_str2 ? std::cout << "String are equal\n" : std::cout << "String are different\n";
+    test_str >= test_str2 ? std::cout << "String are equal or first is bigger\n" : std::cout << "String are different and first is not bigger\n";
+    test_str > 2 ? std::cout << "String is longer\n" : std::cout << "String is shorter\n";
 
     // test_str.Print();
     // test_str2.Print();

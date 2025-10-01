@@ -103,6 +103,25 @@ bool MyString::operator<=(const int length) const {
 }
 
 
+bool MyString::operator==(const char* target_str) const {
+    return strcmp(this->str, target_str) == 0;
+}
+bool MyString::operator!=(const char* target_str) const {
+    return strcmp(this->str, target_str) != 0;
+}
+bool MyString::operator>(const char* target_str) const {
+    return strcmp(this->str, target_str) > 0;
+}
+bool MyString::operator<(const char* target_str) const {
+    return strcmp(this->str, target_str) < 0;
+}
+bool MyString::operator>=(const char* target_str) const {
+    return strcmp(this->str, target_str) >= 0;
+}
+bool MyString::operator<=(const char* target_str) const {
+    return strcmp(this->str, target_str) <= 0;
+}
+
 MyString::MyString() {
     length = 80;
     str = new char[length];
