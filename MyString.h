@@ -51,6 +51,11 @@ public:
     bool operator>=(const char* target_str) const;
     bool operator<=(const char* target_str) const;
 
+    MyString& operator++();
+    MyString operator++(int);
+    MyString & operator--();
+    MyString operator--(int);
+
     void Print();
     void Input();
 };

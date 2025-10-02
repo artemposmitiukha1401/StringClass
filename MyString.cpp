@@ -122,6 +122,64 @@ bool MyString::operator<=(const char* target_str) const {
     return strcmp(this->str, target_str) <= 0;
 }
 
+MyString & MyString::operator++() {
+
+
+    int new_length = strlen(str) + 2;
+    char* temp_str =  new char[new_length];
+    strcpy(temp_str + 1, str);
+    temp_str[0] = ' ';
+    delete [] str;
+    str = temp_str;
+    length = new_length - 1;
+
+    return *this;
+}
+
+MyString MyString::operator++(int) {
+    MyString temp = *this;
+    int new_length = strlen(str)+ 2;
+    char* temp_str =  new char[new_length];
+    strcpy(temp_str, str);
+    temp_str[length] = ' ';
+    temp_str[length + 1] = '\0';
+    delete [] str;
+    str = temp_str;
+    length = new_length - 1;
+
+    return temp;
+}
+
+MyString & MyString::operator--() {
+    if (strlen(str) == 0) return *this;
+
+    int new_length = strlen(str);
+    char* temp_str =  new char[new_length];
+    strcpy(temp_str, str + 1);
+    delete [] str;
+    str = temp_str;
+    length = new_length - 1;
+
+    return *this;
+}
+
+MyString MyString::operator--(int) {
+    MyString temp = *this;
+    if (strlen(str) == 0) return temp;
+
+    int new_length = strlen(str) - 1;
+    char* temp_str =  new char[new_length + 1];
+    strncpy(temp_str, str, new_length);
+    temp_str[new_length] = '\0';
+
+    delete [] str;
+    str = temp_str;
+    length = new_length;
+
+    return temp;
+}
+
+
 MyString::MyString() {
     length = 80;
     str = new char[length];
